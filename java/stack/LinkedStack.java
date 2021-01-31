@@ -16,6 +16,7 @@ public class LinkedStack<E> {
     private void init(int capacity,LinkedNode<E> root,E defaultVal){
         if (capacity <= 1) return;
         root.next = new LinkedNode(defaultVal);
+        root.next.pre = root;
         init(--capacity,root.next,defaultVal);
     }
     public void tracer(LinkedNode root){
@@ -35,14 +36,24 @@ public class LinkedStack<E> {
         top.val = e;
         top = top.next;
     }
+    public void pop(){
+        if (top == base){
+            System.out.println("Stack is already Empty!!!");
+            return;
+        }
+        top = top.pre;
+        top.next = null;
+    }
 }
 //single linked list
 class LinkedNode<T>{
     T val;
-    LinkedNode next;
+    LinkedNode<T> pre;
+    LinkedNode<T> next;
     public LinkedNode(T val){
         this.val = val;
         next = null;
+        pre = null;
     }
 
 }
@@ -53,6 +64,7 @@ class Test{
         linkedStack.push(2);
         linkedStack.push(3);
         linkedStack.push(4);
+        //linkedStack.pop();
         linkedStack.printStack();
 
     }

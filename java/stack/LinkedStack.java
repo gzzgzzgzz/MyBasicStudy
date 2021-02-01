@@ -1,5 +1,9 @@
 package stack;
 
+import lombok.Data;
+
+import java.util.Stack;
+
 public class LinkedStack<E> {
 
     LinkedNode<E> base = null;
@@ -59,13 +63,51 @@ class LinkedNode<T>{
 }
 class Test{
     public static void main(String[] args) {
-        LinkedStack linkedStack = new LinkedStack(3,0);
+        LinkedStack<Integer> linkedStack = new LinkedStack(3,0);
         linkedStack.push(1);
         linkedStack.push(2);
         linkedStack.push(3);
         linkedStack.push(4);
         //linkedStack.pop();
         linkedStack.printStack();
-
+        Stack<Integer> stack = new Stack<>();
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        stack.push(4);
+        System.out.println(stack);
+        System.out.println(stack);
     }
 }
+class TreeNode{
+    TreeNode left;
+    TreeNode right;
+
+    int val;
+    public TreeNode(int val){
+        this.val = val;
+    }
+
+    public static void main(String[] args) {
+        TreeNode n = new TreeNode(1);
+        TreeNode n2 = new TreeNode(2);
+        TreeNode n3 = new TreeNode(3);
+        n.left = n2;
+        n.right = n3;
+        n2.left = null;
+        n2.right = null;
+        n3.right = null;
+        tracer(n);
+    }
+
+    public static void tracer(TreeNode root){
+        //递归出口
+        if (root == null)
+            return;
+        //递归体
+        System.out.println(root.val);
+        tracer(root.left);
+        tracer(root.right);
+    }
+}
+

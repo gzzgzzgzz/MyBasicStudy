@@ -4,6 +4,9 @@ import annotation.OSPACE;
 import annotation.OTIME;
 import linearTable.BasicOperation;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 
 public class SqList<E> implements BasicOperation<SqList<E>,E> {
     //顺序表的最大大小。
@@ -88,6 +91,16 @@ public class SqList<E> implements BasicOperation<SqList<E>,E> {
         return temp;
     }
 
+    @OTIME("n")
+    @OSPACE("n")
+    @Override
+    public void PrintList(SqList<E> l) {
+        System.out.print("{ ");
+        System.out.print(Arrays.stream(l.data).filter(e -> e != null).map(String::valueOf).collect(Collectors.joining(",")));
+        System.out.println(" }");
+    }
+
+
     public static void main(String[] args) {
         SqList<Integer> sqList = new SqList<>(100);
         sqList.InitList(sqList);
@@ -95,12 +108,7 @@ public class SqList<E> implements BasicOperation<SqList<E>,E> {
         sqList.ListInsert(sqList,2,2);
         sqList.ListInsert(sqList,3,3);
         sqList.ListInsert(sqList,0,33);
-        System.out.println(sqList.ListDelete(sqList, 1));
-    }
-
-    @Override
-    public void PrintList(SqList<E> l) {
-
+        sqList.PrintList(sqList);
     }
 
     @Override

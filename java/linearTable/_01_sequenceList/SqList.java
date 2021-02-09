@@ -12,6 +12,7 @@ public class SqList<E> implements BasicOperation<SqList<E>,E> {
     //下面的字段就规定了这个数组的最大大小，同时也是顺序表的最大大小
     private int MaxSize = 0;
 
+    private int length = 0;
 
     private Object[] data;
 
@@ -63,13 +64,28 @@ public class SqList<E> implements BasicOperation<SqList<E>,E> {
     @OSPACE("n")
     @Override
     public void ListInsert(SqList<E> l, int i, E e) {
-        if (i < 1 || i > l.data.length + 1) return;
+        if (i < 1 || i > l.length + 1) return;
         if (l.data.length + 1 == l.MaxSize) return;
         int index = i - 1;
-        for (int j = l.data.length - 1; j > index ; j--) {
+        for (int j = l.length - 1; j > index ; j--) {
             l.data[j] = l.data[j - 1];
         }
         l.data[index] = e;
+        l.length ++;
+    }
+
+    @OTIME("n")
+    @OSPACE("n")
+    @Override
+    public E ListDelete(SqList<E> l, int i) {
+        if (i < 1 || i > l.length) return null;
+        int index = i - 1;
+        E temp = (E) l.data[index];
+        for (; index < l.length; index++) {
+            l.data[index] = l.data[index + 1];
+        }
+        l.length --;
+        return temp;
     }
 
     public static void main(String[] args) {
@@ -78,12 +94,8 @@ public class SqList<E> implements BasicOperation<SqList<E>,E> {
         sqList.ListInsert(sqList,1,1);
         sqList.ListInsert(sqList,2,2);
         sqList.ListInsert(sqList,3,3);
-        System.out.println(sqList.GetElem(sqList, 2));
-    }
-
-    @Override
-    public E ListDelete(SqList<E> l, int i) {
-        return null;
+        sqList.ListInsert(sqList,0,33);
+        System.out.println(sqList.ListDelete(sqList, 1));
     }
 
     @Override

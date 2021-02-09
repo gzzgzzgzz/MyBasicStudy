@@ -1,5 +1,7 @@
 package linearTable._01_sequenceList;
 
+import annotation.OSPACE;
+import annotation.OTIME;
 import linearTable.BasicOperation;
 
 
@@ -25,12 +27,15 @@ public class SqList<E> implements BasicOperation<SqList<E>,E> {
         this.length = 0;
     }
 
-
+    @OTIME("1")
+    @OSPACE("1")
     @Override
     public int Length(SqList<E> l) {
         return l.length;
     }
 
+    @OTIME("n^2")
+    @OSPACE("n^2")
     @Override
     public int LocateElem(SqList<E> l, E e) {
         for (int i = 0; i < l.data.length; i++) {

@@ -22,7 +22,7 @@ public class SqList<E> implements BasicOperation<SqList<E>,E> {
     @Override
     public void InitList(SqList<E> l) {
         data = new Object[MaxSize];
-        this.length = 90;
+        this.length = 0;
     }
 
     public static void main(String[] args) {

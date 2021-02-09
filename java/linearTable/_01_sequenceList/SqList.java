@@ -25,10 +25,6 @@ public class SqList<E> implements BasicOperation<SqList<E>,E> {
         this.length = 0;
     }
 
-    public static void main(String[] args) {
-        SqList<Integer> sqList = new SqList<>(100);
-        sqList.InitList(sqList);
-    }
 
     @Override
     public int Length(SqList<E> l) {
@@ -36,8 +32,21 @@ public class SqList<E> implements BasicOperation<SqList<E>,E> {
     }
 
     @Override
-    public E LocateElem(SqList<E> l, E e) {
-        return null;
+    public int LocateElem(SqList<E> l, E e) {
+        for (int i = 0; i < l.data.length; i++) {
+            if (l.data[i] == e) return i + 1;
+        }
+        return -1;
+    }
+
+    public void dd(){
+        data = new Object[]{1,2,3,4,55};
+    }
+
+    public static void main(String[] args) {
+        SqList<Integer> sqList = new SqList<>(4);
+        sqList.InitList(sqList);
+        sqList.dd();
     }
 
     @Override

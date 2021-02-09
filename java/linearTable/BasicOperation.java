@@ -18,7 +18,7 @@ public interface BasicOperation<SL,E> {
     * */
     public void InitList(SL l);
     public int Length(SL l);
-    public E LocateElem(SL l, E e);
+    public int LocateElem(SL l, E e);
     public E GetElem(SL l,int i);
     public void ListInsert(SL l,int i,E e);
     public E ListDelete(SL l,int i);

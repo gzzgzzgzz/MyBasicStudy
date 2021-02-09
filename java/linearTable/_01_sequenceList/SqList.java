@@ -68,7 +68,7 @@ public class SqList<E> implements BasicOperation<SqList<E>,E> {
     @Override
     public void ListInsert(SqList<E> l, int i, E e) {
         if (i < 1 || i > l.length + 1) return;
-        if (l.length + 1 == l.MaxSize) return;
+        if (l.length == l.MaxSize) return;
         int index = i - 1;
         for (int j = l.length - 1; j > index ; j--) {
             l.data[j] = l.data[j - 1];
@@ -84,8 +84,8 @@ public class SqList<E> implements BasicOperation<SqList<E>,E> {
         if (i < 1 || i > l.length) return null;
         int index = i - 1;
         E temp = (E) l.data[index];
-        for (; index < l.length; index++) {
-            l.data[index] = l.data[index + 1];
+        for (; i < l.length; i++) {
+            l.data[i - 1] = l.data[i];
         }
         l.length --;
         return temp;
@@ -96,7 +96,7 @@ public class SqList<E> implements BasicOperation<SqList<E>,E> {
     @Override
     public void PrintList(SqList<E> l) {
         System.out.print("{ ");
-        System.out.print(Arrays.stream(l.data).filter(e -> e != null).map(String::valueOf).collect(Collectors.joining(",")));
+        System.out.print(Arrays.stream(l.data).limit(l.length).filter(e -> e != null).map(String::valueOf).collect(Collectors.joining(",")));
         System.out.println(" }");
     }
 
@@ -116,8 +116,11 @@ public class SqList<E> implements BasicOperation<SqList<E>,E> {
     }
 
     public static void main(String[] args) {
-        SqList<Integer> sqList = new SqList<>(100);
+        SqList<Integer> sqList = new SqList<>(2);
         sqList.InitList(sqList);
+        sqList.ListInsert(sqList,1,1);
+        sqList.ListInsert(sqList,2,2);
+        sqList.ListInsert(sqList,3,3);
     }
 
 

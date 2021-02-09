@@ -46,7 +46,7 @@ public class SqList<E> implements BasicOperation<SqList<E>,E> {
     }
 
     @OTIME("n")
-    @OSPACE("1")
+    @OSPACE("n")
     @Override
     public E GetElem(SqList<E> l, int i) {
         if (i < 1 || i > l.data.length) return null;
@@ -60,7 +60,7 @@ public class SqList<E> implements BasicOperation<SqList<E>,E> {
 
 
     @OTIME("n")
-    @OSPACE("1")
+    @OSPACE("n")
     @Override
     public void ListInsert(SqList<E> l, int i, E e) {
         if (i < 1 || i > l.data.length + 1) return;

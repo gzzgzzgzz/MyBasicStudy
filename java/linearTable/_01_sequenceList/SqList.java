@@ -63,18 +63,21 @@ public class SqList<E> implements BasicOperation<SqList<E>,E> {
     @Override
     public void ListInsert(SqList<E> l, int i, E e) {
         if (i < 1 || i > l.data.length + 1) return;
-        if (l.data.length > l.data.length)
+        if (l.data.length + 1 == l.MaxSize) return;
         int index = i - 1;
         for (int j = l.data.length - 1; j > index ; j--) {
-
+            l.data[j] = l.data[j - 1];
         }
+        l.data[index] = e;
     }
 
     public static void main(String[] args) {
-        SqList<Integer> sqList = new SqList<>(4);
+        SqList<Integer> sqList = new SqList<>(100);
         sqList.InitList(sqList);
-        sqList.dd();
-        System.out.println(sqList.GetElem(sqList, 5));
+        sqList.ListInsert(sqList,1,1);
+        sqList.ListInsert(sqList,2,2);
+        sqList.ListInsert(sqList,3,3);
+        System.out.println(sqList.GetElem(sqList, 2));
     }
 
     @Override

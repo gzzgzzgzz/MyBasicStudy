@@ -100,25 +100,24 @@ public class SqList<E> implements BasicOperation<SqList<E>,E> {
         System.out.println(" }");
     }
 
+    @OTIME("1")
+    @OSPACE("1")
+    @Override
+    public boolean Empty(SqList<E> l) {
+        return l.length == 0 ? true : false;
+    }
+
+    @OTIME("1")
+    @OSPACE("1")
+    @Override
+    public void DestroyList(SqList<E> l) {
+        l.data = null;
+        l.length = 0;
+    }
 
     public static void main(String[] args) {
         SqList<Integer> sqList = new SqList<>(100);
         sqList.InitList(sqList);
-        sqList.ListInsert(sqList,1,1);
-        sqList.ListInsert(sqList,2,2);
-        sqList.ListInsert(sqList,3,3);
-        sqList.ListInsert(sqList,0,33);
-        sqList.PrintList(sqList);
-    }
-
-    @Override
-    public void Empty(SqList<E> l) {
-
-    }
-
-    @Override
-    public void DestroyList(SqList<E> l) {
-
     }
 
 

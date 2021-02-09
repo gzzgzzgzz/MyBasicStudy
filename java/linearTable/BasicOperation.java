@@ -26,6 +26,6 @@ public interface BasicOperation<SL,E> {
     public void ListInsert(SL l,int i,E e);
     public E ListDelete(SL l,int i);
     public void PrintList(SL l);
-    public void Empty(SL l);
+    public boolean Empty(SL l);
     public void DestroyList(SL l);
 }

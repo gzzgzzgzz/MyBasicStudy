@@ -68,7 +68,7 @@ public class SqList<E> implements BasicOperation<SqList<E>,E> {
     @Override
     public void ListInsert(SqList<E> l, int i, E e) {
         if (i < 1 || i > l.length + 1) return;
-        if (l.data.length + 1 == l.MaxSize) return;
+        if (l.length + 1 == l.MaxSize) return;
         int index = i - 1;
         for (int j = l.length - 1; j > index ; j--) {
             l.data[j] = l.data[j - 1];

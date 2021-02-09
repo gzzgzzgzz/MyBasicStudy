@@ -59,7 +59,8 @@ public class SqList<E> implements BasicOperation<SqList<E>,E> {
     }
 
 
-
+    @OTIME("n")
+    @OSPACE("1")
     @Override
     public void ListInsert(SqList<E> l, int i, E e) {
         if (i < 1 || i > l.data.length + 1) return;

@@ -7,7 +7,7 @@ import lombok.Setter;
 import java.lang.reflect.Array;
 import java.util.Objects;
 
-public class SqList<E> implements BasicOperation {
+public class SqList<E> implements BasicOperation<SqList<Integer>,Integer> {
     //顺序表的最大大小。
     //顺序表是顺序存储的存储结构，因此它的存储方式也是顺序的。
     //而要保证它的顺序，则需要用数组来约束它。
@@ -29,47 +29,47 @@ public class SqList<E> implements BasicOperation {
     }
 
     @Override
-    public void InitList(Object l) {
+    public void InitList(SqList<Integer> l) {
 
     }
 
     @Override
-    public int Length(Object l) {
+    public int Length(SqList<Integer> l) {
         return 0;
     }
 
     @Override
-    public Object LocateElem(Object l, Object o) {
+    public Integer LocateElem(SqList<Integer> l, Integer integer) {
         return null;
     }
 
     @Override
-    public Object GetElem(Object l, int i) {
+    public Integer GetElem(SqList<Integer> l, int i) {
         return null;
     }
 
     @Override
-    public void ListInsert(Object l, int i, Object o) {
+    public void ListInsert(SqList<Integer> l, int i, Integer integer) {
 
     }
 
     @Override
-    public Object ListDelete(Object l, int i) {
+    public Integer ListDelete(SqList<Integer> l, int i) {
         return null;
     }
 
     @Override
-    public void PrintList(Object l) {
+    public void PrintList(SqList<Integer> l) {
 
     }
 
     @Override
-    public void Empty(Object l) {
+    public void Empty(SqList<Integer> l) {
 
     }
 
     @Override
-    public void DestroyList(Object l) {
+    public void DestroyList(SqList<Integer> l) {
 
     }
 }

@@ -12,8 +12,6 @@ public class SqList<E> implements BasicOperation<SqList<E>,E> {
     //下面的字段就规定了这个数组的最大大小，同时也是顺序表的最大大小
     private int MaxSize = 0;
 
-    //线性表的当前长度
-    private int length = 0;
 
     private Object[] data;
 
@@ -24,18 +22,17 @@ public class SqList<E> implements BasicOperation<SqList<E>,E> {
     @Override
     public void InitList(SqList<E> l) {
         data = new Object[MaxSize];
-        this.length = 0;
     }
 
     @OTIME("1")
     @OSPACE("1")
     @Override
     public int Length(SqList<E> l) {
-        return l.length;
+        return data.length;
     }
 
-    @OTIME("n^2")
-    @OSPACE("n^2")
+    @OTIME("n")
+    @OSPACE("n")
     @Override
     public int LocateElem(SqList<E> l, E e) {
         for (int i = 0; i < l.data.length; i++) {
@@ -48,25 +45,36 @@ public class SqList<E> implements BasicOperation<SqList<E>,E> {
         data = new Object[]{1,2,3,4,55};
     }
 
+    @OTIME("n")
+    @OSPACE("1")
+    @Override
+    public E GetElem(SqList<E> l, int i) {
+        if (i < 1 || i > l.data.length) return null;
+        for (int j = 0; j < l.data.length; j++) {
+            if (i == (j + 1)){
+                return (E) l.data[j];
+            }
+        }
+        return null;
+    }
+
 
 
     @Override
-    public E GetElem(SqList<E> l, int i) {
-        for (int j = 0; j < l.data.length; j++) {
+    public void ListInsert(SqList<E> l, int i, E e) {
+        if (i < 1 || i > l.data.length + 1) return;
+        if (l.data.length > l.data.length)
+        int index = i - 1;
+        for (int j = l.data.length - 1; j > index ; j--) {
 
         }
-        return null;
     }
 
     public static void main(String[] args) {
         SqList<Integer> sqList = new SqList<>(4);
         sqList.InitList(sqList);
         sqList.dd();
-    }
-
-    @Override
-    public void ListInsert(SqList<E> l, int i, E e) {
-
+        System.out.println(sqList.GetElem(sqList, 5));
     }
 
     @Override

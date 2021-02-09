@@ -48,15 +48,20 @@ public class SqList<E> implements BasicOperation<SqList<E>,E> {
         data = new Object[]{1,2,3,4,55};
     }
 
+
+
+    @Override
+    public E GetElem(SqList<E> l, int i) {
+        for (int j = 0; j < l.data.length; j++) {
+
+        }
+        return null;
+    }
+
     public static void main(String[] args) {
         SqList<Integer> sqList = new SqList<>(4);
         sqList.InitList(sqList);
         sqList.dd();
-    }
-
-    @Override
-    public E GetElem(SqList<E> l, int i) {
-        return null;
     }
 
     @Override

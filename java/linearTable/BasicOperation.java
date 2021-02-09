@@ -16,6 +16,9 @@ public interface BasicOperation<SL,E> {
     * java的初始化在构造时就已经完成了
     * 2.如果非要模仿这种方式初始化也可以，无非是构造对象时将表的初始化放到了init函数。
     * */
+    /*
+    * 默认的i都是位置，如果形参是index才是索引。
+    * */
     public void InitList(SL l);
     public int Length(SL l);
     public int LocateElem(SL l, E e);

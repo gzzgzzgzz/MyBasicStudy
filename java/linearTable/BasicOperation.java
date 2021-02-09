@@ -10,6 +10,12 @@ package linearTable;
 //E  -- 元素的数据类型
 public interface BasicOperation<SL,E> {
 
+    /*
+    * 1.C的初始化是将指针送入函数
+    * 在函数内为指针分配内存
+    * java的初始化在构造时就已经完成了
+    * 2.如果非要模仿这种方式初始化也可以，无非是构造对象时将表的初始化放到了init函数。
+    * */
     public void InitList(SL l);
     public int Length(SL l);
     public E LocateElem(SL l, E e);

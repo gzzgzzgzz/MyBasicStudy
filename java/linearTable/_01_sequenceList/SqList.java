@@ -23,21 +23,17 @@ public class SqList<E> implements BasicOperation<SqList<E>,E> {
 
     public<E> SqList(int maxSize){
         this.MaxSize = maxSize;
-        data = new Object[maxSize];
     }
 
     @Override
     public void InitList(SqList<E> l) {
-        l = new SqList<E>(10);
-        System.out.println(l.data.length);
+        data = new Object[MaxSize];
+        this.length = 90;
     }
 
     public static void main(String[] args) {
         SqList<Integer> sqList = new SqList<>(100);
-        System.out.println(sqList.data.length);
         sqList.InitList(sqList);
-        System.out.println(sqList.data.length);
-        System.out.println(sqList);
     }
 
     @Override
@@ -79,4 +75,6 @@ public class SqList<E> implements BasicOperation<SqList<E>,E> {
     public void DestroyList(SqList<E> l) {
 
     }
+
+
 }

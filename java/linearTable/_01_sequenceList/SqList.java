@@ -45,10 +45,6 @@ public class SqList<E> implements BasicOperation<SqList<E>,E> {
         return -1;
     }
 
-    public void dd(){
-        data = new Object[]{1,2,3,4,55};
-    }
-
     @OTIME("n")
     @OSPACE("n")
     @Override

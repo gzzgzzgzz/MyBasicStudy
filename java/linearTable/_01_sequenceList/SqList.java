@@ -16,7 +16,8 @@ public class SqList<E> implements BasicOperation<SqList<E>,E> {
     //而要保证它的顺序，则需要用数组来约束它。
     //下面的字段就规定了这个数组的最大大小，同时也是顺序表的最大大小
     private int MaxSize = 0;
-
+    @Setter
+    @Getter
     private int length = 0;
 
     @Setter

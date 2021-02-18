@@ -7,9 +7,19 @@ public class TreeDefination {
 
 
     public static void main(String[] args) {
-        Node node2 = new Node(2,new Node(4,null,null),new Node(5,null,null));
-        Node node3 = new Node(3,new Node(6,node2,null),new Node(7,null,null));
-        Node node = new Node(1,node2,node3);
+//        Node node2 = new Node(2,new Node(4,null,null),new Node(5,null,null));
+//        Node node3 = new Node(3,new Node(6,node2,null),new Node(7,null,null));
+        Node node2 = new Node(2,null,null);
+        Node node3 = new Node(3,null,null);
+        Node root = new Node(1,node2,node3);
+        tracer(root);
+    }
+    public static void tracer(Node root){
+        if (root == null) return;
+        System.out.println(root.value);
+        tracer(root.left);
+            tracer(root.right);
+
     }
 }
 @Data

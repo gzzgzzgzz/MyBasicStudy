@@ -3,6 +3,8 @@ package linearTable._01_sequenceList;
 import annotation.OSPACE;
 import annotation.OTIME;
 import linearTable.BasicOperation;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
@@ -17,6 +19,8 @@ public class SqList<E> implements BasicOperation<SqList<E>,E> {
 
     private int length = 0;
 
+    @Setter
+    @Getter
     private Object[] data;
 
     public<E> SqList(int maxSize){

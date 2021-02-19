@@ -4,7 +4,6 @@ import annotation.OTIME;
 import linearTable.BasicOperation;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.stream.Collectors;
 
 //搞带有头节点的链表
@@ -70,6 +69,7 @@ public class LinkedList<E> implements BasicOperation<LinkedList<E>,E> {
                 //当前位置是插入位置的上一个位置
                 temp.setNext(new LinkedListNode<Integer>((Integer) e,temp.getNext()));
                 l.head.setData((int)l.head.getData() + 1);
+                break;
             }
             temp = temp.getNext();
             pos ++;
@@ -87,6 +87,7 @@ public class LinkedList<E> implements BasicOperation<LinkedList<E>,E> {
                 //当前位置是删除位置的上一个位置
                 temp.setNext(temp.getNext().getNext());
                 l.head.setData((int)l.head.getData() - 1);
+                break;
             }
             temp = temp.getNext();
             pos ++;
@@ -128,6 +129,17 @@ public class LinkedList<E> implements BasicOperation<LinkedList<E>,E> {
         }
     }
 
+    //尾插法
+    public void tailInsert(LinkedList l,int[] args){
+        LinkedListNode temp = head;
+        for (int i = 0; i < args.length; i++) {
+            LinkedListNode newNode = new LinkedListNode(args[i],null);
+            temp.setNext(newNode);
+            temp = newNode;
+            l.head.setData((int)l.head.getData() + 1);
+        }
+    }
+
     public static void main(String[] args) {
         LinkedList<Integer> linkedList = new LinkedList<>();
         linkedList.InitList(linkedList);
@@ -146,6 +158,10 @@ public class LinkedList<E> implements BasicOperation<LinkedList<E>,E> {
         System.out.println(linkedList.GetElem(linkedList, 4));
         linkedList.PrintList(linkedList);
         linkedList.headInsert(linkedList,new int[]{1,2,3,4,5,6,7});
+        linkedList.PrintList(linkedList);
+        linkedList.DestroyList(linkedList);
+
+        linkedList.tailInsert(linkedList,new int[]{1,2,3,4,5,6,7});
         linkedList.PrintList(linkedList);
 
     }

@@ -73,17 +73,28 @@ public class StackSqList<E> implements StackBasicOperation<StackSqList<E>,E> {
 
     public static void main(String[] args) {
         StackSqList<Integer> l = new StackSqList<>(100);
+//        l.InitStack(l);
+//        l.Push(l,100);
+//        l.Push(l,200);
+//        l.Push(l,300);
+//        while (!l.StackEmpty(l)){
+//            System.out.println(l.Pop(l));
+//        }
+//        l.Push(l,100);
+//        l.Push(l,200);
+//        l.Push(l,300);
+//        l.DestroyStack(l);
+//        l.Push(l,100);
+
+
+        //模拟stack over flow,啊，好亲切的名字
         l.InitStack(l);
-        l.Push(l,100);
-        l.Push(l,200);
-        l.Push(l,300);
-        while (!l.StackEmpty(l)){
-            System.out.println(l.Pop(l));
+        int index = 0;
+        while (index < 1000){
+            l.Push(l,index);
+            index ++;
         }
-        l.Push(l,100);
-        l.Push(l,200);
-        l.Push(l,300);
-        l.DestroyStack(l);
-        l.Push(l,100);
+        //因为顺序存储，才会有栈溢出。哈哈。
+        //看来早期的顺序栈还是很多的。
     }
 }

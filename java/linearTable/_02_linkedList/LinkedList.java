@@ -67,7 +67,7 @@ public class LinkedList<E> implements BasicOperation<LinkedList<E>,E> {
         while (pos < i){
             if (pos == i - 1){
                 //当前位置是插入位置的上一个位置
-                temp.setNext(new LinkedListNode<Integer>((Integer) e,temp.getNext()));
+                temp.setNext(new LinkedListNode<E>((E) e,temp.getNext()));
                 l.head.setData((int)l.head.getData() + 1);
                 break;
             }

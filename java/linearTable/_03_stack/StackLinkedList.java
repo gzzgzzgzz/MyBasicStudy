@@ -1,8 +1,12 @@
 package linearTable._03_stack;
 
 import linearTable.StackBasicOperation;
+import linearTable._02_linkedList.LinkedListNode;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 /*
 * 栈的链式存储结构采用单链表的头插法来进行。
@@ -50,6 +54,20 @@ public class StackLinkedList<E> implements StackBasicOperation<StackLinkedList<E
     @Override
     public void DestroyStack(StackLinkedList<E> l) {
         l.head = null;
+    }
+
+    public void PrintStack(StackLinkedList<E> l){
+        System.out.print("{ ");
+        if (!l.StackEmpty(l)){
+            ArrayList arrayList = new ArrayList();
+            StackLinkedListNode temp = l.head.getNext();
+            while (temp != null){
+                arrayList.add(temp.getData());
+                temp = temp.getNext();
+            }
+            System.out.print(arrayList.stream().map(String::valueOf).collect(Collectors.joining(",")));
+        }
+        System.out.println(" }");
     }
 
     public static void main(String[] args) {

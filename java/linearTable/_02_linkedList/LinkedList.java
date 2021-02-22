@@ -143,26 +143,29 @@ public class LinkedList<E> implements BasicOperation<LinkedList<E>,E> {
     public static void main(String[] args) {
         LinkedList<Integer> linkedList = new LinkedList<>();
         linkedList.InitList(linkedList);
-        linkedList.ListInsert(linkedList,1,1);
-        linkedList.ListInsert(linkedList,2,4);
-        linkedList.ListInsert(linkedList,3,3);
-        linkedList.ListInsert(linkedList,4,2);
-        linkedList.ListInsert(linkedList,5,5);
-        linkedList.ListInsert(linkedList,6,6);
-        linkedList.ListDelete(linkedList,1);
-        linkedList.ListDelete(linkedList,1);
-        linkedList.ListDelete(linkedList,1);
-        linkedList.ListDelete(linkedList,1);
-        System.out.println(linkedList.LocateElem(linkedList,5));
-        System.out.println(linkedList.GetElem(linkedList, 2));
-        System.out.println(linkedList.GetElem(linkedList, 4));
+//        linkedList.ListInsert(linkedList,1,1);
+//        linkedList.ListInsert(linkedList,2,4);
+//        linkedList.ListInsert(linkedList,3,3);
+//        linkedList.ListInsert(linkedList,4,2);
+//        linkedList.ListInsert(linkedList,5,5);
+//        linkedList.ListInsert(linkedList,6,6);
+//        linkedList.ListDelete(linkedList,1);
+//        linkedList.ListDelete(linkedList,1);
+//        linkedList.ListDelete(linkedList,1);
+//        linkedList.ListDelete(linkedList,1);
+//        System.out.println(linkedList.LocateElem(linkedList,5));
+//        System.out.println(linkedList.GetElem(linkedList, 2));
+//        System.out.println(linkedList.GetElem(linkedList, 4));
+//        linkedList.PrintList(linkedList);
+//        linkedList.headInsert(linkedList,new int[]{1,2,3,4,5,6,7});
+//        linkedList.PrintList(linkedList);
+//        linkedList.DestroyList(linkedList);
+//
+//        linkedList.tailInsert(linkedList,new int[]{1,2,3,4,5,6,7});
+//        linkedList.PrintList(linkedList);
+        for (int i = 0; i < 100; i++) {
+            linkedList.ListInsert(linkedList,1,i);;
+        }
         linkedList.PrintList(linkedList);
-        linkedList.headInsert(linkedList,new int[]{1,2,3,4,5,6,7});
-        linkedList.PrintList(linkedList);
-        linkedList.DestroyList(linkedList);
-
-        linkedList.tailInsert(linkedList,new int[]{1,2,3,4,5,6,7});
-        linkedList.PrintList(linkedList);
-
     }
 }

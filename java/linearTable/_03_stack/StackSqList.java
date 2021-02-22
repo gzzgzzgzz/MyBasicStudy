@@ -1,7 +1,6 @@
 package linearTable._03_stack;
 
 import linearTable.StackBasicOperation;
-import linearTable._01_sequenceList.SqList;
 import lombok.Getter;
 import lombok.Setter;
 

@@ -31,13 +31,14 @@ public class SqQueue<E> implements QueueBasicOperation<SqQueue<E>,E> {
 
     @Override
     public boolean QueueEmpty(SqQueue<E> l) {
-        if (this.front == this.rear && this.front == 0) return true;
+        if (this.front == this.rear) return true;
         else return false;
     }
 
     @Override
     public void Offer(SqQueue<E> l, E e) {
         if (isFull(l)){
+            //队上溢
             return;
         }
         l.getData()[l.rear] = e;
@@ -47,11 +48,8 @@ public class SqQueue<E> implements QueueBasicOperation<SqQueue<E>,E> {
     @Override
     public E Poll(SqQueue<E> l) {
         if (QueueEmpty(l)){return null;}
-        E temp = (E) l.data[0];
-        for (int i = 1; i < l.rear; i++) {
-            l.getData()[i - 1] = l.getData()[i];
-        }
-        l.rear --;
+        E temp = (E) l.data[l.front];
+        l.front ++;
         return temp;
     }
 
@@ -78,5 +76,7 @@ public class SqQueue<E> implements QueueBasicOperation<SqQueue<E>,E> {
         System.out.println(sqQueue.Poll(sqQueue));
         System.out.println(sqQueue.Poll(sqQueue));
         System.out.println(sqQueue.Poll(sqQueue));
+        System.out.println(sqQueue.Poll(sqQueue));
+        System.out.println(sqQueue.QueueEmpty(sqQueue));
     }
 }

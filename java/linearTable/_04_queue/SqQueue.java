@@ -56,8 +56,7 @@ public class SqQueue<E> implements QueueBasicOperation<SqQueue<E>,E> {
     @Override
     public E GetTop(SqQueue<E> l) {
         if (QueueEmpty(l)) return null;
-        int temp = l.rear - 1;
-        return (E) l.getData()[temp];
+        return (E) l.getData()[l.front];
     }
 
     public boolean isFull(SqQueue<E> l){

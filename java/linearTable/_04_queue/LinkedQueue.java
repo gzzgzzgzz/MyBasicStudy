@@ -29,6 +29,7 @@ public class LinkedQueue<E> implements QueueBasicOperation<LinkedQueue<E>,E> {
         LinkedQueueNode<E> temp = new LinkedQueueNode<>(e);
         l.tail.setNext(temp);
         l.tail = temp;
+        l.tail.setNext(null);
     }
 
     @Override

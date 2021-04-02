@@ -1,7 +1,11 @@
 package mytree.demoTree;
 
+import linearTable._03_stack.StackLinkedList;
+import linearTable._04_queue.LinkedQueue;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 public class MyTreeDemo {
@@ -21,36 +25,67 @@ public class MyTreeDemo {
         root.left.right = new MyTree(5);
         root.right.left = new MyTree(6);
         root.right.right = new MyTree(7);
-        LinkedList<MyTree> treeStack = new LinkedList<MyTree>();
-        //模拟一个递归的过程
-        //🌲的递归，将结点层层压栈。
-        //其实就是二叉树的非递归遍历
-        tracer(root);
-        System.out.println("-栈非递归-中序");
-        ////
-        MyTree fakeRoot = root;
-        while (!treeStack.isEmpty() || fakeRoot != null){
-            if (fakeRoot != null){
-                treeStack.push(fakeRoot);
-                fakeRoot = fakeRoot.left;
-            }else {
-                fakeRoot = treeStack.pop();
-                visit(fakeRoot);
-                fakeRoot = fakeRoot.right;
-            }
-        }
-        System.out.println("-栈非递归-先序");
-        fakeRoot = root;
-        while (!treeStack.isEmpty() || fakeRoot != null){
-            if (fakeRoot != null){
-                visit(fakeRoot);
-                treeStack.push(fakeRoot);
-                fakeRoot = fakeRoot.left;
-            }else {
-                fakeRoot = treeStack.pop();
-                fakeRoot = fakeRoot.right;
-            }
-        }
+
+//        Queue<MyTree> q = new LinkedList();
+//        q.offer(root);
+//        while (!q.isEmpty()){
+//            MyTree poll = q.poll();
+//            System.out.println(poll.val);
+//            if (poll.left != null){
+//                q.offer(poll.left);
+//            }
+//            if (poll.right != null){
+//                q.offer(poll.right);
+//            }
+//        }
+
+//        LinkedQueue<MyTree> q = new LinkedQueue<>();
+//        q.InitQueue(q);
+//        q.Offer(q,root);
+//        while (!q.QueueEmpty(q)){
+//            MyTree poll = q.Poll(q);
+//            System.out.println(poll.val);
+//            if (poll.left != null){
+//                q.Offer(q,poll.left);
+//            }
+//            if (poll.right != null){
+//                q.Offer(q,poll.right);
+//            }
+//        }
+        //举这个例子想说明这两种方式一样的(自己写的数据结构和封装的)
+
+
+
+//        LinkedList<MyTree> tree = new LinkedList<MyTree>();
+//        //模拟一个递归的过程
+//        //🌲的递归，将结点层层压栈。
+//        //其实就是二叉树的非递归遍历
+//        tracer(root);
+//        System.out.println("-栈非递归-中序");
+//        ////
+//        MyTree fakeRoot = root;
+//        while (!treeStack.isEmpty() || fakeRoot != null){
+//            if (fakeRoot != null){
+//                treeStack.push(fakeRoot);
+//                fakeRoot = fakeRoot.left;
+//            }else {
+//                fakeRoot = treeStack.pop();
+//                visit(fakeRoot);
+//                fakeRoot = fakeRoot.right;
+//            }
+//        }
+//        System.out.println("-栈非递归-先序");
+//        fakeRoot = root;
+//        while (!treeStack.isEmpty() || fakeRoot != null){
+//            if (fakeRoot != null){
+//                visit(fakeRoot);
+//                treeStack.push(fakeRoot);
+//                fakeRoot = fakeRoot.left;
+//            }else {
+//                fakeRoot = treeStack.pop();
+//                fakeRoot = fakeRoot.right;
+//            }
+//        }
 //        System.out.println("-栈非递归-后序"); //有问题呢
 //        fakeRoot = root;
 //        MyTree recode = null;//辅助记录指针
